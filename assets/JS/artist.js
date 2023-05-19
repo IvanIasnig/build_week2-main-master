@@ -50,7 +50,7 @@ fetch(url)
     for (let i = 0; i < artist.length; i++) {
       //-------- SCHELETRO CARD -----------
       //scheletro
-      const popular = `<div data-song-url="${artist[i].preview}" onclick="songsStart(this)" onmouseover="hoverEffect(this)" onmouseout="hoverEffect(this)" class="popular-row d-flex flex-row align-items-center py-2">
+      const popular = `<div data-song-url="${artist[i].preview}" data-img="${artist[i].album.cover}" data-title=${artist[i].title} data-artist=${artist[i].artist.name} onclick="songsStart(this)" onmouseover="hoverEffect(this)" onmouseout="hoverEffect(this)" class="popular-row d-flex flex-row align-items-center py-2">
           <p class="ps-2 ps-sm-3 m-0">
             <span class="opacity d-block">&nbsp;${i + 1}&nbsp;</span>
             <i class="bi bi-play-fill opacity d-none"></i>
@@ -143,6 +143,18 @@ function songsStart(div) {
   song.src = songUrl;
   console.log(songUrl);
   
+  const artista = document.getElementById("article_artist")
+  let artistImg = div.getAttribute("data-img")
+  let title = div.getAttribute("data-title")
+  let artName = div.getAttribute("data-artist")
+
+  artista.innerHTML = `<img src="${artistImg}" alt="songImg" width="50" height="50" id="imgThumb">
+      <div class="ms-2">
+        <h4 id="title" class="text-white m-0 p-0">${title}</h4>
+        
+        <small id="artist" class="text-white m-0 p-0">${artName}</small>
+      </div>`
+
   // Aspetta che l'audio sia completamente caricato prima di riprodurlo
   song.oncanplaythrough = function() {
     song.play();
