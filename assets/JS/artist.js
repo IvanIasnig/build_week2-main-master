@@ -50,7 +50,7 @@ fetch(url)
     for (let i = 0; i < artist.length; i++) {
       //-------- SCHELETRO CARD -----------
       //scheletro
-      const popular = `<div data-song-url="${artist[i].preview}" data-img="${artist[i].album.cover}" data-title=${artist[i].title} data-artist=${artist[i].artist.name} onclick="songsStart(this)" onmouseover="hoverEffect(this)" onmouseout="hoverEffect(this)" class="popular-row d-flex flex-row align-items-center py-2">
+      const popular = `<div data-song-url="${artist[i].preview}" data-img="${artist[i].album.cover}" data-title="${artist[i].title}" data-artist="${artist[i].artist.name}" onclick="songsStart(this)" onmouseover="hoverEffect(this)" onmouseout="hoverEffect(this)" class="popular-row d-flex flex-row align-items-center py-2">
           <p class="ps-2 ps-sm-3 m-0">
             <span class="opacity d-block">&nbsp;${i + 1}&nbsp;</span>
             <i class="bi bi-play-fill opacity d-none"></i>

@@ -110,9 +110,9 @@ async function fetchSongs() {
 
         return `<div data-song-url="${song.preview}" data-img="${
           song.album.cover
-        }" data-title=${song.title} data-artist=${
+        }" data-title="${song.title}" data-artist="${
           song.artist.name
-        } onclick="songsStart(this)" onmouseover="hoverEffect(this)" onmouseout="hoverEffect(this)" class="popular-row d-flex flex-row align-items-center py-2">
+        }" onclick="songsStart(this)" onmouseover="hoverEffect(this)" onmouseout="hoverEffect(this)" class="popular-row d-flex flex-row align-items-center py-2">
       <p class="ps-3 m-0 me-3">
           <span class="opacity d-block">&nbsp;${counter + 1}&nbsp;</span>
           <i class="bi bi-play-fill opacity d-none"></i>
@@ -124,7 +124,7 @@ async function fetchSongs() {
         <p class="m-0 d-none d-lg-block fw-lighter ms-4">${song.rank.toLocaleString()}</p>
         <i class="btn text-white p-0 bi bi-heart opacity opacity-0 d-none d-sm-block ms-4"></i>
         <p class="m-0 fw-lighter ms-4 me-4 me-sm-0">${Number(
-          song.duration / 100
+          song.duration / 60
         ).toFixed(2)}</p>
         <a href="" class="btn text-white p-0 d-none d-sm-block ms-4 pe-3"><i class="bi bi-three-dots"></i></a>
       </div>`;
