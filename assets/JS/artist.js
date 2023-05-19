@@ -155,11 +155,9 @@ function songsStart(div) {
         <small id="artist" class="text-white m-0 p-0">${artName}</small>
       </div>`
 
-      
-  // Aspetta che l'audio sia completamente caricato prima di riprodurlo
-  song.oncanplaythrough = function() {
     song.play();
-  }
+    playPause();
+  
 }
 
 
