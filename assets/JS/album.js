@@ -107,10 +107,12 @@ async function fetchSongs() {
     const songsHtml = response.data.tracks.data
       .map((song, counter) => {
         // Salva l'URL del brano in un attributo data-
-        
-        return `<div data-song-url="${
-          song.preview
-        }" data-img="${song.album.cover}" data-title=${song.title} data-artist=${song.artist.name} onclick="songsStart(this)" onmouseover="hoverEffect(this)" onmouseout="hoverEffect(this)" class="popular-row d-flex flex-row align-items-center py-2">
+
+        return `<div data-song-url="${song.preview}" data-img="${
+          song.album.cover
+        }" data-title=${song.title} data-artist=${
+          song.artist.name
+        } onclick="songsStart(this)" onmouseover="hoverEffect(this)" onmouseout="hoverEffect(this)" class="popular-row d-flex flex-row align-items-center py-2">
       <p class="ps-3 m-0 me-3">
           <span class="opacity d-block">&nbsp;${counter + 1}&nbsp;</span>
           <i class="bi bi-play-fill opacity d-none"></i>
@@ -143,17 +145,17 @@ function songsStart(div) {
   song.src = songUrl;
   console.log(songUrl);
 
-  const artista = document.getElementById("article_artist")
-  let artistImg = div.getAttribute("data-img")
-  let title = div.getAttribute("data-title")
-  let artName = div.getAttribute("data-artist")
-
+  const artista = document.getElementById("article_artist");
+  let artistImg = div.getAttribute("data-img");
+  let title = div.getAttribute('data-title');
+  let artName = div.getAttribute("data-artist");
+  console.log(title);
   artista.innerHTML = `<img src="${artistImg}" alt="songImg" width="50" height="50" id="imgThumb">
       <div class="ms-2">
         <h4 id="title" class="text-white m-0 p-0">${title}</h4>
         
         <small id="artist" class="text-white m-0 p-0">${artName}</small>
-      </div>`
+      </div>`;
 
   // Aspetta che l'audio sia completamente caricato prima di riprodurlo
   song.oncanplaythrough = function () {
